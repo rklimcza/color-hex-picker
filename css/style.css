@@ -1,0 +1,33 @@
+.d_clip_button {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width:20%;
+    font-weight:bold;
+    color:black;
+}
+
+.d_clip_button.zeroclipboard-is-hover {
+    color:#e3e3e3;
+}
+body {
+    text-align: center;
+}
+table {
+    width: 100%;
+
+    padding-top:5%;
+    padding-bottom:5%;
+}
+.didit {
+    display:none;
+    position: fixed;
+    left:0;
+    top:40%;
+    width:100%;
+    background-color:#ff0000;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+
+
+

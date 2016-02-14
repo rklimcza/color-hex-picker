@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Color Picker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="zc/ZeroClipboard.js"></script>
+  </head>
+  <body>
+    <h1>Color Picker</h1>
+    <table>
+        <tr>
+            <td class="d_clip_button" data-clipboard-text="#660033" style="background-color:#660033">#660033</td>
+            <td class="d_clip_button" data-clipboard-text="#993366" style="background-color:#993366">#993366</td>
+            <td class="d_clip_button" data-clipboard-text="#9966ff" style="background-color:#9966ff">#9966ff</td>
+            <td class="d_clip_button" data-clipboard-text="#330099" style="background-color:#330099">#330099</td>
+            <td class="d_clip_button" data-clipboard-text="#000033" style="background-color:#000033">#000033</td>
+        </tr>
+        <tr>
+            <td class="d_clip_button" data-clipboard-text="#0099cc" style="background-color:#0099cc">#0099cc</td>
+            <td class="d_clip_button" data-clipboard-text="#00ccff" style="background-color:#00ccff">#00ccff</td>
+            <td class="d_clip_button" data-clipboard-text="#339999" style="background-color:#339999">#339999</td>
+            <td class="d_clip_button" data-clipboard-text="#00cc99" style="background-color:#00cc99">#00cc99</td>
+            <td class="d_clip_button" data-clipboard-text="#66cc66" style="background-color:#66cc66">#66cc66</td>
+        </tr>
+        <tr>
+            <td class="d_clip_button" data-clipboard-text="#999966" style="background-color:#999966">#999966</td>
+            <td class="d_clip_button" data-clipboard-text="#cc6633" style="background-color:#cc6633">#cc6633</td>
+            <td class="d_clip_button" data-clipboard-text="#993333" style="background-color:#993333">#993333</td>
+            <td class="d_clip_button" data-clipboard-text="#ff3300" style="background-color:#ff3300">#ff3300</td>
+            <td class="d_clip_button" data-clipboard-text="#4A766E" style="background-color:#4A766E">#4A766E</td>
+        </tr>
+    </table>
+    <div class=didit><h1 class='diditt'></h1></div>
+    <p style='padding-top:20px'>powered by ZeroClipboard</p>
+
+    <script type="text/javascript">
+      $( ".d_clip_button" ).click(function() {
+          tlo = $(this).css('background-color');
+          kolor = $(this).css('color');
+          $('.didit').css('background-color',tlo);
+          $('.didit').css('color',kolor);
+          
+      });
+      
+      
+      var client = new ZeroClipboard( $('.d_clip_button') );
+
+      client.on( 'ready', function(event) {
+        // console.log( 'movie is loaded' );
+
+        client.on( 'copy', function(event) {
+          event.clipboardData.setData('text/plain');
+        } );
+
+        client.on( 'aftercopy', function(event) {
+          $('.diditt').text('SKOPIOWANO: ' + event.data['text/plain'])
+          $('.didit').toggle(200).delay(300).toggle(200);
+        } );
+      } );
+
+      client.on( 'error', function(event) {
+        // console.log( 'ZeroClipboard error of type "' + event.name + '": ' + event.message );
+        ZeroClipboard.destroy();
+      } );
+    </script>
+  </body>
+</html>
+
